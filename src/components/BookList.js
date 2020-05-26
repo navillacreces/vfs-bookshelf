@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react'
+import Book from './Book'
 
-
-export default function ValidationError(props) {
-  if(props.message) {
-    return (
-      <div className="error">{props.message}</div>
-    );
-  }
-
-  return <></>
+export default class BookList extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
