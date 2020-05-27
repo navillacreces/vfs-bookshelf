@@ -1,0 +1,8 @@
+.add-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    align-items: center;
+}
