@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import BookList from './BookList'
-
+import BookContext from './BookContext'
 import '../css/app.css'
 import AddBook from './AddBook';
 
@@ -61,13 +61,19 @@ export default class App extends React.Component {
 
   render(){
 
+    const value = {
+      books : this.state.books
+    }
+
     return (
+      <BookContext.Provider value={value}>
       <div className="App">
         <header>
             <h1>VFS-Bookshelf</h1>
         </header>
         
       </div>
+      </BookContext.Provider>
     );
   }
 }

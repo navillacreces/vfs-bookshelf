@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import ValidationError from './ValidationError'
-
-
-
+import BookContext from './BookContext'
 
 export default class AddBook extends Component {
+
+    static contextType = BookContext;
 
     constructor(props){
         super(props)

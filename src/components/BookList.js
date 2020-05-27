@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Book from './Book'
+import BookContext from './BookContext'
 
 export default class BookList extends React.Component {
+
+    static contextType = BookContext;
 
     constructor(props){
         super(props)
