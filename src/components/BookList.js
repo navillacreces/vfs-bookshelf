@@ -16,9 +16,6 @@ export default class BookList extends React.Component {
         
         return (
             <>
-                <header>
-                    <h1>VFS-Bookshelf</h1>
-                </header>
                 
                 <div className="book-list">
                     <div className="add-button-container">

@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 import BookList from './BookList'
 
 import '../css/app.css'
+import AddBook from './AddBook';
 
 const sampleBooks = [
   {
@@ -62,7 +63,10 @@ export default class App extends React.Component {
 
     return (
       <div className="App">
-        <BookList books={this.state}/>
+        <header>
+            <h1>VFS-Bookshelf</h1>
+        </header>
+        
       </div>
     );
   }
