@@ -71,6 +71,8 @@ export default class App extends React.Component {
         <header>
             <h1>VFS-Bookshelf</h1>
         </header>
+        <Route exact path='/' component={BookList} />
+        <Route path='/add' component={AddBook} />
         
       </div>
       </BookContext.Provider>

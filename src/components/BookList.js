@@ -15,16 +15,18 @@ export default class BookList extends React.Component {
 
     render() {
 
-        const {books} = this.props.books
+        
         
         return (
             <>
                 
                 <div className="book-list">
                     <div className="add-button-container">
-                        <buttton>+</buttton>
+                        <Link to='/add'>
+                            <buttton>+</buttton>
+                        </Link>
                     </div>
-                    {books.map(book =>{
+                    {this.context.books.map(book =>{
                         return <Book key={book.id}{...book}></Book>
                     })}
                 </div>
