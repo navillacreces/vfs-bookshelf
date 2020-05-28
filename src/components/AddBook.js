@@ -31,21 +31,21 @@ export default class AddBook extends Component {
             <div className="addBook">
                 <div className="form-container">
                 <form>
-                <div>
+                <div className="title-container">
                     <label>
                         Title:
                     </label>
                     <input type="text" />
                 </div>
-                <div>
+                <div className="author-container">
                     <label>
                         Author:
                     </label>
                     <input type="text" />
                 </div>
-                <div>
+                <div className="rating-container">
                     <label>
-                        Your Rating :
+                        Your Rating: 
                     </label>
                     <select>
                         <option>1</option>
@@ -55,9 +55,9 @@ export default class AddBook extends Component {
                         <option>5</option>
                     </select>
                 </div>
-                <div>
+                <div className="ownership-container">
                     <label>
-                        Ownership:
+                        Ownership: 
                     </label>
                     <select>
                         <option>

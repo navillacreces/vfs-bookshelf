@@ -6,4 +6,17 @@
 form {
     margin-top: 100px;
     
+    
+    justify-content: center;
+    background-color: lightgrey;
+    
+    
 }
+
+
+.title-container,.author-container,.rating-container,.ownership-container{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
