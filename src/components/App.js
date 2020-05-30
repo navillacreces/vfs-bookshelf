@@ -53,6 +53,13 @@ export default class App extends React.Component {
     };
   }
 
+  handleAddBook = (newBook) =>{
+    this.setState({
+      books: [...this.state.books, newBook]
+    })
+  }
+
+
   componentDidMount(){
     this.setState({
       books: sampleBooks
@@ -62,7 +69,8 @@ export default class App extends React.Component {
   render(){
 
     const value = {
-      books : this.state.books
+      books : this.state.books,
+      handleAddBook: this.handleAddBook
     }
 
     return (

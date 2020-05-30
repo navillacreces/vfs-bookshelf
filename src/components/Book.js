@@ -29,7 +29,8 @@ export default class Book extends React.Component {
                     <h4>Status:</h4>
                     <p>{Status}</p>
                 </div>
-                <h4>Purchase Link</h4>
+                
+                <a href="https://amazon.com" target="_blank"><h4>Purchase Link</h4></a>
             </div>
         )
     }
