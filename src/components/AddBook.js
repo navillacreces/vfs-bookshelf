@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ValidationError from './ValidationError'
 import BookContext from './BookContext'
+import config from '../config'
 
 export default class AddBook extends Component {
 
@@ -25,7 +26,7 @@ export default class AddBook extends Component {
 
         const author = event.target.author.value;
         const title = event.target.title.value;
-        const isbn = event.target.isbn.value;
+        const isbn = event.target.ISBN.value;
         const rating = event.target.rating.value;
         const ownership = event.target.ownership.value;
 
@@ -34,9 +35,49 @@ export default class AddBook extends Component {
             author: author,
             rating: rating,
             status: ownership,
-            isbn: isbn
+            isbn: isbn,
+            img: null,
+            purchase_link: null
         }
         
+        
+        const url = 'https://www.googleapis.com/books/v1/volumes?q='
+        const authorArray = author.split(' ');
+        const authorLastName = authorArray[authorArray.length - 1]
+
+        const authorQuery = `inauthor:${authorLastName}+`
+        const isbnQuery = `isbn:${isbn}`
+
+        const options = {
+            method : 'GET',
+            header : {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const urlWithQ = url + authorQuery + isbnQuery;
+        
+        fetch(urlWithQ + `&key=${config.REACT_APP_API_KEY}`, options)
+            .then(res =>{
+                if (!res.ok){
+                    throw new Error ('something went wrong try again later');
+                }
+                return res.json()
+            })
+            .then(resObj =>{
+                
+               // newBook.img = resObj.items[0].volumeInfo.imageLinks.thumbnail;
+               // console.log(newBook)
+               console.log(resObj.items[0])
+            })
+            .catch(err =>{
+
+                console.log(err);
+               
+              });
+
+
+
     }
 
     ValidateTitle(){
