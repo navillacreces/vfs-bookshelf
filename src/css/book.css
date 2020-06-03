@@ -9,10 +9,8 @@
     border-top: 2px solid black;
 }
 
-.cover{
-    height: 220px;
-    width: 120px;
-    background-color: lightgrey;
-    margin: auto;
-    margin-bottom: 15px;
+img{
+    background-repeat: no-repeat;
+    background-size: auto;
+
 }

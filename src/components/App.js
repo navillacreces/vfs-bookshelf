@@ -8,37 +8,37 @@ import AddBook from './AddBook';
 const sampleBooks = [
   {
     id: '0',
-    Author: "Adam Carolla",
-    Title: "Not Taco Bell Material",
-    Status: "Not Owned",
+    author: "Adam Carolla",
+    title: "Not Taco Bell Material",
+    ownership: "Not Owned",
    
   },
   {
     id: '1',
-    Author: "Chuck Palahniuk",
-    Title: "Fight Club",
-    Status: "Hardcopy",
+    author: "Chuck Palahniuk",
+    title: "Fight Club",
+    ownership: "Hardcopy",
     
   },
   {
     id: '2',
-    Author: "Aldous Huxley",
-    Title: "Brave New World",
-    Status: "E-Book",
+    author: "Aldous Huxley",
+    title: "Brave New World",
+    ownership: "E-Book",
    
   },
   {
     id: '3',
-    Author: "Walter Isaacson",
-    Title: "Steve Jobs",
-    Status: "Hardcopy",
+    author: "Walter Isaacson",
+    title: "Steve Jobs",
+    ownership: "Hardcopy",
    
   },
   {
     id:'4',
-    Author: "Danny Mullen",
-    Title: "Home",
-    Status: "Not Owned",
+    author: "Danny Mullen",
+    title: "Home",
+    ownership: "Not Owned",
     
   }
 

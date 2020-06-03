@@ -23,7 +23,7 @@ export default class BookList extends React.Component {
                 <div className="book-list">
                     <div className="add-button-container">
                         <Link to='/add'>
-                            <buttton>+</buttton>
+                            <button type="button">+</button>
                         </Link>
                     </div>
                     {this.context.books.map(book =>{

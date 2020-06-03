@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ValidationError from './ValidationError'
+//import ValidationError from './ValidationError'
 import BookContext from './BookContext'
 import config from '../config'
 
@@ -66,9 +66,12 @@ export default class AddBook extends Component {
             })
             .then(resObj =>{
                 
-               // newBook.img = resObj.items[0].volumeInfo.imageLinks.thumbnail;
-               // console.log(newBook)
-               console.log(resObj.items[0])
+               newBook.img = resObj.items[0].volumeInfo.imageLinks.thumbnail;
+               newBook.purchase_link = resObj.items[0].volumeInfo.previewLink;
+
+               this.context.handleAddBook(newBook)
+               this.props.history.push('/');
+               
             })
             .catch(err =>{
 
