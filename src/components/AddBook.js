@@ -30,15 +30,13 @@ export default class AddBook extends Component {
         const ownership = event.target.ownership.value;
 
         const newBook = {
-            Title : title,
-            Author: author,
-            Rating: rating,
-            Status: ownership,
-            id: new Date()
+            title : title,
+            author: author,
+            rating: rating,
+            status: ownership,
+            isbn: isbn
         }
         
-       
-
     }
 
     ValidateTitle(){
