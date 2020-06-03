@@ -25,6 +25,7 @@ export default class AddBook extends Component {
 
         const author = event.target.author.value;
         const title = event.target.title.value;
+        const isbn = event.target.isbn.value;
         const rating = event.target.rating.value;
         const ownership = event.target.ownership.value;
 
@@ -36,9 +37,7 @@ export default class AddBook extends Component {
             id: new Date()
         }
         
-        this.context.handleAddBook(newBook)
-        console.log(this.context.state);
-        this.props.history.push('/');
+       
 
     }
 
@@ -68,6 +67,14 @@ export default class AddBook extends Component {
                         Author:
                     </label>
                     <input type="text" name="author" />
+                </div>
+                <div className="ISBN-container">
+                    <label>
+                        ISBN:
+                    </label>
+                    <input 
+                        type="text"
+                        name="ISBN"></input>
                 </div>
                 <div className="rating-container">
                     <label>
