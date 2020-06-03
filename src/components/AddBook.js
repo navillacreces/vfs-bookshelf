@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import ValidationError from './ValidationError'
 import BookContext from './BookContext'
+import config from '../config'
+
+
 
 export default class AddBook extends Component {
 
@@ -28,6 +31,13 @@ export default class AddBook extends Component {
         const rating = event.target.rating.value;
         const ownership = event.target.ownership.value;
 
+        const authorNameArray = author.split(' ');
+        const authorLastName = authorNameArray[1];
+
+
+        const titleArray = title.split(' ');
+        const titleQuery = `${titleArray[0]}+${titleArray[1]}+${titleArray[2]}`
+
         const newBook = {
             Title : title,
             Author: author,
@@ -35,10 +45,36 @@ export default class AddBook extends Component {
             Status: ownership,
             id: new Date()
         }
+        // remember key
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        const url = 'https://www.googleapis.com/books/v1/volumes?q='
+        const bookQuery = `inauthor:${authorLastName}+intitle:${titleQuery}`
         
-        this.context.handleAddBook(newBook)
-        console.log(this.context.state);
-        this.props.history.push('/');
+        const ourSearch = url + bookQuery;
+
+        fetch(ourSearch + `&key=${config.REACT_APP_API_KEY}`,options)
+            .then(res =>{
+                if(!res.ok){
+                    throw new Error('Something went wrong, please try again later');
+                }
+                
+                console.log(res.json())
+            })
+            .catch(err =>{
+
+                console.log(err);
+                  this.setState({
+                      
+                      error: err.message
+                  });
+                });
 
     }
 
