@@ -1,0 +1,15 @@
+  
+{
+
+    "version" : 1,
+    "name": "vfs-bookshelf",
+    "alias": "vfs-bookshelf",
+    "routes" : [
+        { "handle": "filesystem"},
+        {"src": "/.*","dest":"/index.html" }
+    ],
+    "env":{
+        "REACT_APP_API_KEY": "@REACT_APP_API_KEY",
+        "REACT_APP_API_ENDPOINT" : "@REACT_APP_API_ENDPOINT"
+    }
+}
