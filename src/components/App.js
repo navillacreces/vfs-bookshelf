@@ -4,45 +4,9 @@ import BookList from './BookList'
 import BookContext from './BookContext'
 import '../css/app.css'
 import AddBook from './AddBook';
+import config from '../config'
 
-const sampleBooks = [
-  {
-    id: '0',
-    author: "Adam Carolla",
-    title: "Not Taco Bell Material",
-    ownership: "Not Owned",
-   
-  },
-  {
-    id: '1',
-    author: "Chuck Palahniuk",
-    title: "Fight Club",
-    ownership: "Hardcopy",
-    
-  },
-  {
-    id: '2',
-    author: "Aldous Huxley",
-    title: "Brave New World",
-    ownership: "E-Book",
-   
-  },
-  {
-    id: '3',
-    author: "Walter Isaacson",
-    title: "Steve Jobs",
-    ownership: "Hardcopy",
-   
-  },
-  {
-    id:'4',
-    author: "Danny Mullen",
-    title: "Home",
-    ownership: "Not Owned",
-    
-  }
 
-]
 
 export default class App extends React.Component {
 
@@ -59,7 +23,6 @@ export default class App extends React.Component {
     })
   }
 
-
   componentDidMount(){
 
          
@@ -70,9 +33,8 @@ export default class App extends React.Component {
       }
     }
 
-    
 
-    fetch('http://localhost:8000/books',options)
+    fetch(`${config.REACT_APP_API_ENDPOINT}`,options)
       .then(res =>{
         if (!res.ok){
             throw new Error('Something went wrong, please try again later');
@@ -90,15 +52,7 @@ export default class App extends React.Component {
               error: err.message
           });
       });
-      
-
-
-
-    /*
-    this.setState({
-      books: sampleBooks
-    })
-    */
+    
   }
 
   render(){
@@ -110,14 +64,13 @@ export default class App extends React.Component {
 
     return (
       <BookContext.Provider value={value}>
-      <div className="App">
-        <header>
+        <div className="App">
+          <header>
             <h1>VFS-Bookshelf</h1>
-        </header>
-        <Route exact path='/' component={BookList} />
-        <Route path='/add' component={AddBook} />
-        
-      </div>
+          </header>
+          <Route exact path='/' component={BookList} />
+          <Route path='/add' component={AddBook} />
+        </div>
       </BookContext.Provider>
     );
   }
