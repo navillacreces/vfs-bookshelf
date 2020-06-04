@@ -9,7 +9,7 @@ export default class Book extends React.Component {
 
     render(){
 
-        const {title,author,ownership,img} = this.props;
+        const {title,author,ownership,img,purchase_link,rating} = this.props;
     
 
         return (
@@ -26,13 +26,13 @@ export default class Book extends React.Component {
                 <div className="cover">
                     <img src={img} alt="bookcover"></img>
                 </div>
-                <Rating />
+                <Rating value={rating}/>
                 <div className="own-status">
                     <h4>Status:</h4>
                     <p>{ownership}</p>
                 </div>
                 
-                <a href="https://amazon.com" target="_blank"><h4>Purchase Link</h4></a>
+                <a href={purchase_link}target="_blank"><h4>Purchase Link</h4></a>
             </div>
         )
     }

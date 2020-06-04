@@ -19,6 +19,38 @@ export default class AddBook extends Component {
         this.state = {};
     }
 
+    postToDataBase(aNewBook){
+
+        const options = {
+            method : 'POST',
+            body: JSON.stringify(aNewBook),
+            headers:{
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        const url = 'http://localhost:8000/books';
+
+        fetch(url,options)
+            .then(res =>{
+                if(!res.ok){
+                    throw new Error('something went wrong, please try again');
+                }
+                return res.json()
+            })
+            .then(res =>{
+                this.context.handleAddBook(res)
+            })
+            .catch(err =>{
+
+                console.log(err);
+                  this.setState({
+                      
+                      error: err.message
+                  });
+              });
+    }
+
 
     onSubmit = event =>{
 
@@ -65,10 +97,17 @@ export default class AddBook extends Component {
                 return res.json()
             })
             .then(resObj =>{
+
+                if (resObj.totalItems === 0){
+                    this.postToDataBase(newBook)
+                    this.context.handleAddBook(newBook)
+                    this.props.history.push('/');
+                }
                 
                newBook.img = resObj.items[0].volumeInfo.imageLinks.thumbnail;
                newBook.purchase_link = resObj.items[0].volumeInfo.previewLink;
 
+               this.postToDataBase(newBook)
                this.context.handleAddBook(newBook)
                this.props.history.push('/');
                
@@ -123,7 +162,7 @@ export default class AddBook extends Component {
                         Your Rating: 
                     </label>
                     <select name="rating">
-                        <option value='1'>1</option>
+                        <option selected value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
                         <option value='4'>4</option>
@@ -135,7 +174,7 @@ export default class AddBook extends Component {
                         Ownership: 
                     </label>
                     <select name="ownership">
-                        <option value="Not Yet Owned">
+                        <option selected value="Not Yet Owned">
                             No
                         </option>
                         <option value="Kindle">

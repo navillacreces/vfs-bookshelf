@@ -61,9 +61,44 @@ export default class App extends React.Component {
 
 
   componentDidMount(){
+
+         
+    const options = {
+      method: 'GET',
+      headers:{
+        "Content-Type": "application/json" 
+      }
+    }
+
+    
+
+    fetch('http://localhost:8000/books',options)
+      .then(res =>{
+        if (!res.ok){
+            throw new Error('Something went wrong, please try again later');
+        }
+
+          return res.json()
+      })
+      .then(books =>{
+        this.setState({
+          books:books
+        })
+      })
+        .catch(err =>{
+          this.setState({
+              error: err.message
+          });
+      });
+      
+
+
+
+    /*
     this.setState({
       books: sampleBooks
     })
+    */
   }
 
   render(){
