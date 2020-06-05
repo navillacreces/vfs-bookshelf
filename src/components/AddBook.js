@@ -31,7 +31,7 @@ export default class AddBook extends Component {
 
         
 
-        fetch(`${config.REACT_APP_API_ENPOINT}/books`,options)
+        fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
             .then(res =>{
                 if(!res.ok){
                     throw new Error('something went wrong, please try again');
