@@ -4,9 +4,6 @@ import Rating from './Rating'
 export default class Book extends React.Component {
 
 
-
-
-
     render(){
 
         const {title,author,ownership,img,purchase_link,rating} = this.props;
