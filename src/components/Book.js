@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Rating from './Rating'
 
 export default class Book extends React.Component {
@@ -32,7 +32,7 @@ export default class Book extends React.Component {
                     <p>{ownership}</p>
                 </div>
                 
-                <a href={purchase_link}target="_blank"><h4>Purchase Link</h4></a>
+                <a href={purchase_link} rel="noopener noreferrer" target="_blank"><h4>Purchase Link</h4></a>
             </div>
         )
     }

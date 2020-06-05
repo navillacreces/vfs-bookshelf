@@ -11,5 +11,9 @@
     "env":{
         "REACT_APP_API_KEY": "@REACT_APP_API_KEY",
         "REACT_APP_API_ENDPOINT" : "@REACT_APP_API_ENDPOINT"
+    },
+    "build" : {
+        "REACT_APP_API_KEY": "@REACT_APP_API_KEY",
+        "REACT_APP_API_ENDPOINT" : "@REACT_APP_API_ENDPOINT"
     }
 }
