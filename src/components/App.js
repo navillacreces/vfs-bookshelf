@@ -34,7 +34,7 @@ export default class App extends React.Component {
     }
 
 
-    fetch(`${config.REACT_APP_API_ENDPOINT}`,options)
+    fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
       .then(res =>{
         if (!res.ok){
             throw new Error('Something went wrong, please try again later');
