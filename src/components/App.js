@@ -5,6 +5,7 @@ import BookContext from './BookContext'
 import '../css/app.css'
 import AddBook from './AddBook';
 import config from '../config'
+import SearchResultList from './SearchResultList'
 
 
 export default class App extends React.Component {
@@ -69,6 +70,7 @@ export default class App extends React.Component {
           </header>
           <Route exact path='/' component={BookList} />
           <Route path='/add' component={AddBook} />
+          <Route path='/results' component={SearchResultList} />
         </div>
       </BookContext.Provider>
     );

@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default class SearchResultList extends Component {
+export default class SearchResultList extends React.Component {
 
     constructor(props){
         super(props)
         this.state ={}
+    }
+
+    componentDidMount(){
+
     }
 
 

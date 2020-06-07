@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class SearchResultElement extends Component {
+export default class SearchResultElement extends React.Component {
     render() {
         return (
             <div class="search-result-element">
@@ -14,7 +14,7 @@ export default class SearchResultElement extends Component {
 
                 </div>
                 <div className="serach-result-desc">
-                    
+
                 </div>
             </div>
         )
