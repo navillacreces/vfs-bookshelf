@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchResultElement from './SearchResultElement'
 
 export default class SearchResultList extends React.Component {
 
@@ -15,6 +16,9 @@ export default class SearchResultList extends React.Component {
     render() {
         return (
             <div className="search-result-list">
+                {this.props.results.map(book =>{
+                    return <SearchResultElement key={book.id}{...book} />
+                })}
                 
             </div>
         )
