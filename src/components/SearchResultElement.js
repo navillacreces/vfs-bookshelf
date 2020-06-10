@@ -22,8 +22,13 @@ export default class SearchResultElement extends React.Component {
                 <div className="search-result-author">
                     {this.props.volumeInfo.authors}
                 </div>
-                <div className="search-result-isbn">
-                    {this.props.industryIndentifiers}
+                <div className="search-result-button">
+                    <button type="button">This is the book</button>
+                </div>
+                <div className="search-result-desc">
+                    
+                    <img src={this.props.volumeInfo.imageLinks.thumbnail} alt={"book-cover"} />
+                    <p>{this.props.volumeInfo.description}</p>
                 </div>
                 
             </div>

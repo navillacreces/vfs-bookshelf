@@ -17,9 +17,8 @@ export default class SearchResultList extends React.Component {
         return (
             <div className="search-result-list">
                 {this.props.results.map(book =>{
-                    return <SearchResultElement key={book.id}{...book} />
-                })}
-                
+                    return <SearchResultElement key={book.id}{...book} />                                         
+                })} 
             </div>
         )
     }
