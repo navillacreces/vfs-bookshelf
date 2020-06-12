@@ -19,41 +19,12 @@ export default class AddBook extends Component {
         super(props)
         this.state = {
             results : [],
-            searched: false
+            searched: false,
+            ownership: null,
+            rating: null,
         };
     }
 
-    postToDataBase(aNewBook){
-
-        const options = {
-            method : 'POST',
-            body: JSON.stringify(aNewBook),
-            headers:{
-                'Content-Type' : 'application/json'
-            }
-        }
-
-        
-
-        fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
-            .then(res =>{
-                if(!res.ok){
-                    throw new Error('something went wrong, please try again');
-                }
-                return res.json()
-            })
-            .then(res =>{
-                this.context.handleAddBook(res)
-            })
-            .catch(err =>{
-
-                console.log(err);
-                  this.setState({
-                      
-                      error: err.message
-                  });
-              });
-    }
 
 
 
@@ -133,7 +104,9 @@ export default class AddBook extends Component {
                     // set resObj to state
                     this.setState({
                         results: firstFiveResults,
-                        searched: true
+                        searched: true,
+                        ownership: newBook.status,
+                        rating: newBook.rating
                     })
                     // state bool true , searched
 
@@ -223,7 +196,11 @@ export default class AddBook extends Component {
                     <button type="submit">Submit</button>
                 </form>
                 </div>
-                {this.state.searched && <SearchResultList results={this.state.results} />}
+                {this.state.searched && <SearchResultList 
+                    
+                    results={this.state.results}
+                    ownership={this.state.ownership}
+                    rating={this.state.rating} />}
             </div>
         )
     }
