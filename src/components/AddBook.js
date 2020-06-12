@@ -124,7 +124,7 @@ export default class AddBook extends Component {
                     const firstFiveResults = [];
                     
 
-                    for (let x = 0; x < 4 ; x++){
+                    for (let x = 0; x <= 4 ; x++){
                         console.log(resObj.items[x])
                         firstFiveResults.push(resObj.items[x])
                     }

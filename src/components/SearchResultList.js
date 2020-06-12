@@ -16,6 +16,9 @@ export default class SearchResultList extends React.Component {
     render() {
         return (
             <div className="search-result-list">
+                <h4>Search Results</h4>
+                <h6>With Google Books API</h6>
+                <button type="button">None of these are it</button>
                 {this.props.results.map(book =>{
                     return <SearchResultElement key={book.id}{...book} />                                         
                 })} 
