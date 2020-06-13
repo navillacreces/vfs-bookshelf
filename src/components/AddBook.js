@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import ValidationError from './ValidationError'
+import ValidationError from './ValidationError'
 import BookContext from './BookContext'
 import config from '../config'
 import SearchResultList from './SearchResultList';
@@ -19,9 +19,11 @@ export default class AddBook extends Component {
         super(props)
         this.state = {
             results : [],
+            zeroResult : false,
             searched: false,
             ownership: '',
             rating: '',
+            error: ''
         };
     }
 
@@ -30,9 +32,12 @@ export default class AddBook extends Component {
 
         event.preventDefault();
 
+        this.setState({
+            zeroResult: false
+        })
+
         const author = event.target.author.value;
-        const title = event.target.title.value;
-        
+        const title = event.target.title.value; 
         const rating = event.target.rating.value;
         const ownership = event.target.ownership.value;
 
@@ -56,7 +61,7 @@ export default class AddBook extends Component {
 
         const titleQuery= `intitle:${titleArray[0]}`
         const authorQuery = `inauthor:${authorLastName}+`
-       // const isbnQuery = `isbn:${isbn}`
+       
 
         const options = {
             method : 'GET',
@@ -75,53 +80,37 @@ export default class AddBook extends Component {
                 return res.json()
             })
             .then(resObj =>{
+               
+                if (resObj.totalItems === 0){
+                    this.setState({
+                        zeroResult: true
+                    })
+                   
+                } else{
 
+                const firstFive = [];
+                let x = 0;
+
+                for (x = 0; x <5; x++){
+                    firstFive.push(resObj.totalItems[x])
+                }
                
 
-                
-                if (resObj.totalItems <= 1){
-                    console.log('this is one')
-                   // this.postToDataBase(newBook)
-                   // this.context.handleAddBook(newBook)
-                  //  this.props.history.push('/');
-                } else {
-
-                    // get first 5 results
-                    const firstFiveResults = [];
-                    
-
-                    for (let x = 0; x <= 4 ; x++){
-                        console.log(resObj.items[x])
-                        firstFiveResults.push(resObj.items[x])
-                    }
-                    
-
-                    // set resObj to state
-                    this.setState({
-                        results: firstFiveResults,
-                        searched: true,
-                        ownership: newBook.status,
-                        rating: newBook.rating
-                    })
-                    // state bool true , searched
+                this.setState({
+                    results: firstFive,
+                    searched: true,
+                    ownership: newBook.status,
+                    rating: newBook.rating
+                })
 
                 }
-
-                
-
-                /*
-               newBook.img = resObj.items[0].volumeInfo.imageLinks.thumbnail;
-               newBook.purchase_link = resObj.items[0].volumeInfo.previewLink;
-
-               this.postToDataBase(newBook)
-               this.context.handleAddBook(newBook)
-               this.props.history.push('/');
-               */
-               
             })
             .catch(err =>{
 
                 console.log(err);
+                this.setState({
+                    error: err
+                })
                
               });
 
@@ -137,11 +126,20 @@ export default class AddBook extends Component {
 
     }
 
+    ZeroResult(){
+       
+            return 'No Results Found, Please make a new serach'
+        
+    }
+
 
 
     render() {
+
+        const zeroResultsError = this.ZeroResult()
         return (
             <div className="addBook">
+                {this.state.zeroResult && <ValidationError className="zero-error" message={zeroResultsError}/>}
                 <div className="form-container">
                 <form onSubmit={this.onSubmit}>
                 <div className="title-container">

@@ -60,7 +60,6 @@ export default class SearchResultElement extends React.Component {
             return res.json()
         })
         .then(book =>{
-           console.log(book)
            this.context.handleAddBook(book)
            this.props.history.push('/');
           

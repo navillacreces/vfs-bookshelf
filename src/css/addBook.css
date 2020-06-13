@@ -13,6 +13,9 @@ form {
     
 }
 
+.error,.zero-error{
+    text-align: center;
+}
 
 .title-container,.author-container,.rating-container,.ownership-container{
 
