@@ -9,13 +9,6 @@ export default class SearchResultList extends React.Component {
         this.state ={}
     }
 
-    componentDidMount(){
-
-    }
-
-
-
-    
 
 
     render() {

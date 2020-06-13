@@ -20,15 +20,10 @@ export default class AddBook extends Component {
         this.state = {
             results : [],
             searched: false,
-            ownership: null,
-            rating: null,
+            ownership: '',
+            rating: '',
         };
     }
-
-
-
-
-
 
 
     onSubmit = event =>{

@@ -1,6 +1,6 @@
 import React from 'react'
 import bookContext from './BookContext'
-
+import config from '../config'
 
 
 export default class SearchResultElement extends React.Component {
@@ -27,30 +27,75 @@ export default class SearchResultElement extends React.Component {
 
         const status = this.props.ownership;
         const rating = this.props.rating;
-
+        const img = this.props.volumeInfo.imageLinks.thumbnail;
         const title = this.props.volumeInfo.title;
-        const authors = this.props.volumeInfo.authors;
+        const authors = this.props.volumeInfo.authors[0];
+        const purchase_link = this.props.volumeInfo.previewLink;
 
         const newBook = {
             title : title,
             author : authors,
-            status: status,
-            rating: rating
+            ownership: status,
+            rating: rating,
+            img : img,
+            purchase_link: purchase_link
         }
         
-        
+        console.log(newBook)
+
+
+        const options = {
+            method : 'POST',
+            body: JSON.stringify(newBook),
+            headers:{
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error('something went wrong, please try again');
+            }
+            return res.json()
+        })
+        .then(book =>{
+           console.log(book)
+           this.context.handleAddBook(book)
+           this.props.history.push('/');
+          
+        })
+        .catch(err =>{
+
+            console.log(err);
+            
+              this.setState({
+                  
+                  error: err.message
+              });
+              
+          });
+
+
+        /*
         this.context.postToDatabase(newBook)
         this.props.history.push('/');
+        */
+
+
+        
     }
 
 
     render() {
 
-        let imageAddress = this.props.volumeInfo.imageLinks.thumbnail
+        
+        let imageAddress = this.props.volumeInfo.imageLinks.thumbnail;
 
         if (imageAddress === undefined){
             imageAddress = ''
         }
+        
         
 
         return (
@@ -62,7 +107,7 @@ export default class SearchResultElement extends React.Component {
                     <h5>{this.props.volumeInfo.authors}</h5>
                 </div>
                 <div className="search-result-button">
-                    <button type="button" onClick={() => this.confirmedBook()}>This is the book</button>
+                    <button type="button" onClick={(e) => this.confirmedBook()}>This is the book</button>
                 </div>
                 <div className="search-result-desc">
                     

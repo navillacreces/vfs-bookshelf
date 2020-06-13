@@ -5,7 +5,6 @@ import BookContext from './BookContext'
 import '../css/app.css'
 import AddBook from './AddBook';
 import config from '../config'
-import SearchResultList from './SearchResultList'
 
 
 export default class App extends React.Component {
@@ -20,8 +19,8 @@ export default class App extends React.Component {
     };
   }
 
-
-  postToDatabase(aNewBook){
+  /*
+  postToDatabase = aNewBook =>{
 
     const options = {
         method : 'POST',
@@ -41,23 +40,25 @@ export default class App extends React.Component {
             return res.json()
         })
         .then(res =>{
+           console.log(res)
            this.context.handleAddBook(res)
-           
           
         })
         .catch(err =>{
 
             console.log(err);
-            /*
+            
               this.setState({
                   
                   error: err.message
               });
-              */
+              
           });
 }
 
-  handleAddBook = (newBook) =>{
+
+*/
+  handleAddBook = newBook =>{
     this.setState({
       books: [...this.state.books, newBook]
     })
