@@ -9,14 +9,56 @@ import config from '../config'
 
 export default class App extends React.Component {
 
+   
+
   constructor(props){
     super(props)
     this.state = {
-      books : []
+      books : [],
+      error: null
     };
   }
 
-  handleAddBook = (newBook) =>{
+  /*
+  postToDatabase = aNewBook =>{
+
+    const options = {
+        method : 'POST',
+        body: JSON.stringify(aNewBook),
+        headers:{
+            'Content-Type' : 'application/json'
+        }
+    }
+
+    
+
+    fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error('something went wrong, please try again');
+            }
+            return res.json()
+        })
+        .then(res =>{
+           console.log(res)
+           this.context.handleAddBook(res)
+          
+        })
+        .catch(err =>{
+
+            console.log(err);
+            
+              this.setState({
+                  
+                  error: err.message
+              });
+              
+          });
+}
+
+
+*/
+  handleAddBook = newBook =>{
     this.setState({
       books: [...this.state.books, newBook]
     })
@@ -58,7 +100,8 @@ export default class App extends React.Component {
 
     const value = {
       books : this.state.books,
-      handleAddBook: this.handleAddBook
+      handleAddBook: this.handleAddBook,
+      postToDatabase: this.postToDatabase
     }
 
     return (
@@ -69,6 +112,8 @@ export default class App extends React.Component {
           </header>
           <Route exact path='/' component={BookList} />
           <Route path='/add' component={AddBook} />
+
+          {/*<Route path='/results' component={SearchResultList} /> */}
         </div>
       </BookContext.Provider>
     );
