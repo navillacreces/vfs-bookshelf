@@ -85,6 +85,7 @@ export default class AddBook extends Component {
                     this.setState({
                         zeroResult: true
                     })
+                    document.getElementById('myform').reset();
                    
                 } else{
 
@@ -131,9 +132,6 @@ export default class AddBook extends Component {
             return 'No Results Found, Please make a new serach'
         
     }
-
-
-
     render() {
 
         const zeroResultsError = this.ZeroResult()
@@ -141,7 +139,7 @@ export default class AddBook extends Component {
             <div className="addBook">
                 {this.state.zeroResult && <ValidationError className="zero-error" message={zeroResultsError}/>}
                 <div className="form-container">
-                <form onSubmit={this.onSubmit}>
+                <form id="myform" onSubmit={this.onSubmit}>
                 <div className="title-container">
                     <label>
                         Title:
