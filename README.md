@@ -8,7 +8,7 @@ link is provided in the app.
 
 https://vfs-bookshelf.now.sh
 
-![screenshot of application] (/public/screenshot.png)
+![screenshot of application](/public/screenshot.png)
 
 ### Tech
  - React
