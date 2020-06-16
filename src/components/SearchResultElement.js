@@ -58,11 +58,12 @@ export default class SearchResultElement extends React.Component {
                 throw new Error('something went wrong, please try again');
             }
             return res.json()
+           
         })
         .then(book =>{
-           this.context.handleAddBook(book)
-           this.props.history.push('/');
-          
+           
+            this.props.history.push('/');
+         //  this.context.handleAddBook(book)
         })
         .catch(err =>{
 
@@ -74,14 +75,6 @@ export default class SearchResultElement extends React.Component {
               });
               
           });
-
-
-        /*
-        this.context.postToDatabase(newBook)
-        this.props.history.push('/');
-        */
-
-
         
     }
 
