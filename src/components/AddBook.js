@@ -28,6 +28,18 @@ export default class AddBook extends Component {
     }
 
 
+    clearTheForm = event =>{
+        
+        document.getElementById('myform').reset();
+        this.setState({
+            results: [],
+            searched: false,      
+        })
+        
+
+    }
+
+
     onSubmit = event =>{
 
         event.preventDefault();
@@ -80,6 +92,9 @@ export default class AddBook extends Component {
                 return res.json()
             })
             .then(resObj =>{
+                
+                
+               
                
                 if (resObj.totalItems === 0){
                     this.setState({
@@ -87,15 +102,15 @@ export default class AddBook extends Component {
                     })
                     document.getElementById('myform').reset();
                    
-                } else{
+                } else {
 
                 const firstFive = [];
                 let x = 0;
 
-                for (x = 0; x <5; x++){
-                    firstFive.push(resObj.totalItems[x])
+                for (x = 0; x <= 4; x++){
+                    
+                    firstFive.push(resObj.items[x])
                 }
-               
 
                 this.setState({
                     results: firstFive,
@@ -103,8 +118,15 @@ export default class AddBook extends Component {
                     ownership: newBook.status,
                     rating: newBook.rating
                 })
+                    
 
                 }
+                
+               
+
+                
+                
+
             })
             .catch(err =>{
 
@@ -188,7 +210,7 @@ export default class AddBook extends Component {
                 </form>
                 </div>
                 {this.state.searched && <SearchResultList 
-                    
+                    clearTheForm={this.clearTheForm}
                     results={this.state.results}
                     ownership={this.state.ownership}
                     rating={this.state.rating} />}

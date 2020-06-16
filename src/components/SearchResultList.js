@@ -14,9 +14,14 @@ export default class SearchResultList extends React.Component {
     render() {
         return (
             <div className="search-result-list">
-                <h4>Search Results</h4>
-                <h6>With Google Books API</h6>
-                <button type="button">None of these are it</button>
+                <div className="search-heading">
+                    <h4>Search Results</h4>
+                    <h6>With Google Books API</h6>
+                    <button 
+                        type="button"
+                        onClick={this.props.clearTheForm} 
+                        className="not-found-button">None of these are it</button>
+                </div>
                 {this.props.results.map(book =>{
                     return <SearchResultElement 
                                 key={book.id}

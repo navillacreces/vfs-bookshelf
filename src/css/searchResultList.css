@@ -1,3 +1,15 @@
-.search-result-element{
+h4,h6,.search-result-element{
     text-align: center;
+}
+
+.search-heading{
+    display: flex;
+    flex-direction: column;
+}
+
+.not-found-button{
+
+    width: 210px;
+    text-align: center;
+    margin: auto;
 }

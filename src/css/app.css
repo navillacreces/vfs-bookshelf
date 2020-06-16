@@ -14,3 +14,8 @@ a:link{
 a:visited{
     color: purple;
 }
+
+
+.search-result-button{
+    margin-bottom: 10px;
+}
