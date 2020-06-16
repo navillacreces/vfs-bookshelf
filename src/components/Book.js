@@ -23,7 +23,9 @@ export default class Book extends React.Component {
                 <div className="cover">
                     <img src={img} alt="bookcover"></img>
                 </div>
+                <div className="rating">
                 <Rating value={rating}/>
+                </div>
                 <div className="own-status">
                     <h4>Status:</h4>
                     <p>{ownership}</p>

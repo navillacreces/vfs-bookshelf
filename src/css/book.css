@@ -3,14 +3,29 @@
     border-bottom: 1px solid black;
     padding: 10px;
     text-align: center;
+    color: white;
+    background-color: #000501;
+    border-bottom: 1px solid white;
 }
 
-.book:first-child{
-    border-top: 2px solid black;
+.rating{
+    color: gold;
 }
 
 img{
     background-repeat: no-repeat;
     background-size: auto;
 
+}
+
+.book-author-div > h4{
+    color: white;
+}
+
+.own-status > h4 {
+    color: white;
+}
+
+a > h4{
+    color: #b9DFD2;
 }

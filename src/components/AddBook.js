@@ -152,6 +152,7 @@ export default class AddBook extends Component {
         const zeroResultsError = this.ZeroResult()
         return (
             <div className="addBook">
+                <h4>Add a book to your bookshelf with the Google Api</h4>
                 {this.state.zeroResult && <ValidationError className="zero-error" message={zeroResultsError}/>}
                 <div className="form-container">
                 <form id="myform" onSubmit={this.onSubmit}>
