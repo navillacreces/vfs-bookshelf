@@ -117,20 +117,12 @@ export default class AddBook extends Component {
                     searched: true,
                     ownership: newBook.status,
                     rating: newBook.rating
-                })
-                    
-
-                }
-                
-               
-
-                
-                
+                })                  
+                }               
 
             })
             .catch(err =>{
 
-                console.log(err);
                 this.setState({
                     error: err
                 })

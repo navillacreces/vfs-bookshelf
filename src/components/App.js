@@ -19,45 +19,6 @@ export default class App extends React.Component {
     };
   }
 
-  /*
-  postToDatabase = aNewBook =>{
-
-    const options = {
-        method : 'POST',
-        body: JSON.stringify(aNewBook),
-        headers:{
-            'Content-Type' : 'application/json'
-        }
-    }
-
-    
-
-    fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
-        .then(res =>{
-            if(!res.ok){
-                throw new Error('something went wrong, please try again');
-            }
-            return res.json()
-        })
-        .then(res =>{
-           console.log(res)
-           this.context.handleAddBook(res)
-          
-        })
-        .catch(err =>{
-
-            console.log(err);
-            
-              this.setState({
-                  
-                  error: err.message
-              });
-              
-          });
-}
-
-
-*/
   handleAddBook = newBook =>{
     this.setState({
       books: [...this.state.books, newBook]

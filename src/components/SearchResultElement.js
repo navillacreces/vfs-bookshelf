@@ -23,7 +23,7 @@ export default class SearchResultElement extends React.Component {
 
     confirmedBook = event =>{
 
-        console.log(this.props.volumeInfo.title)
+       
 
         const status = this.props.ownership;
         const rating = this.props.rating;
@@ -41,7 +41,7 @@ export default class SearchResultElement extends React.Component {
             purchase_link: purchase_link
         }
         
-        console.log(newBook)
+        
 
 
         const options = {
@@ -67,7 +67,7 @@ export default class SearchResultElement extends React.Component {
         })
         .catch(err =>{
 
-            console.log(err);
+            
             
               this.setState({
                   
