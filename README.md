@@ -6,7 +6,9 @@ link is provided in the app.
 
 ## App
 
-screenshot incoming 
+https://vfs-bookshelf.now.sh
+
+![screenshot of application] (/public/screenshot.png)
 
 ### Tech
  - React
