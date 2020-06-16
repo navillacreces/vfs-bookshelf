@@ -141,13 +141,6 @@ export default class AddBook extends Component {
              
     }
 
-    ValidateTitle(){
-
-    }
-
-    ValidateAuthor(){
-
-    }
 
     ZeroResult(){
        
