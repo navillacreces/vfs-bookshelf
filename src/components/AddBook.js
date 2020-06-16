@@ -204,6 +204,7 @@ export default class AddBook extends Component {
                 </form>
                 </div>
                 {this.state.searched && <SearchResultList 
+                    history={this.props.history}
                     clearTheForm={this.clearTheForm}
                     results={this.state.results}
                     ownership={this.state.ownership}

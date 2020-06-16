@@ -61,9 +61,9 @@ export default class SearchResultElement extends React.Component {
            
         })
         .then(book =>{
-           
+            this.context.handleAddBook(book);
             this.props.history.push('/');
-         //  this.context.handleAddBook(book)
+           
         })
         .catch(err =>{
 
