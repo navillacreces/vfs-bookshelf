@@ -148,6 +148,7 @@ export default class AddBook extends Component {
                 {this.state.zeroResult && <ValidationError className="zero-error" message={zeroResultsError}/>}
                 <div className="form-container">
                 <form id="myform" onSubmit={this.onSubmit}>
+                    <div className="form-container">
                 <div className="title-container">
                     <label>
                         Title:
@@ -191,6 +192,7 @@ export default class AddBook extends Component {
                             Hardcopy
                         </option>
                     </select>
+                    </div>
                     </div>
                     <button type="submit">Submit</button>
                 </form>
