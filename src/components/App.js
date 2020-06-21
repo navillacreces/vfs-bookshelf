@@ -74,8 +74,6 @@ export default class App extends React.Component {
           </header>
           <Route exact path='/' component={BookList} />
           <Route path='/add' component={AddBook} />
-
-          {/*<Route path='/results' component={SearchResultList} /> */}
         </div>
       </BookContext.Provider>
     );
