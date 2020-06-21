@@ -70,6 +70,7 @@ export default class App extends React.Component {
         <div className="App">
           <header>
             <h1>VFS-Bookshelf</h1>
+            <h6>Catalog your books and your future library</h6>
           </header>
           <Route exact path='/' component={BookList} />
           <Route path='/add' component={AddBook} />
