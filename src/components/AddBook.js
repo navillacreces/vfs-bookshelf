@@ -144,23 +144,23 @@ export default class AddBook extends Component {
                 <form id="myform" onSubmit={this.onSubmit}>
                     <div className="form-container">
                 <div className="title-container">
-                    <label>
+                    <label htmlFor="title">
                         Title:
                     </label>
-                    <input type="text" name="title" />
+                    <input type="text" name="title" id="title" />
                 </div>
                 <div className="author-container">
-                    <label>
+                    <label htmlFor="author">
                         Author:
                     </label>
-                    <input type="text" name="author" />
+                    <input type="text" name="author" id="author" />
                 </div>
                
                 <div className="rating-container">
-                    <label>
+                    <label htmlFor="rating">
                         Your Rating: 
                     </label>
-                    <select name="rating">
+                    <select name="rating" id="rating">
                         <option defaultValue value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -169,10 +169,10 @@ export default class AddBook extends Component {
                     </select>
                 </div>
                 <div className="ownership-container">
-                    <label>
+                    <label htmlFor="ownership">
                         Ownership: 
                     </label>
-                    <select name="ownership">
+                    <select name="ownership" id="ownership">
                         <option defaultValue value="Not Yet Owned">
                             No
                         </option>

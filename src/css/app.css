@@ -18,6 +18,9 @@ html{
 h1{
     color: #66A378;
 }
+h6{
+    color: #FFFFFF;
+}
 
 a:link{
     text-decoration: none;
@@ -35,5 +38,10 @@ a:visited{
 footer{ 
     width: 100%;
     bottom: 0;
+    
+}
+
+footer > h6{
+    color: black;
 }
 
