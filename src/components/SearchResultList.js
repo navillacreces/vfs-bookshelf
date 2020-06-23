@@ -13,6 +13,7 @@ export default class SearchResultList extends React.Component {
 
     render() {
         return (
+            <section>
             <div className="search-result-list">
                 <div className="search-heading">
                     <h4>Search Results</h4>
@@ -31,6 +32,7 @@ export default class SearchResultList extends React.Component {
                                 {...book} />                                         
                 })} 
             </div>
+            </section>
         )
     }
 }

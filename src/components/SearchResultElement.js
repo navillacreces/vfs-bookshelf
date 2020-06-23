@@ -21,7 +21,7 @@ export default class SearchResultElement extends React.Component {
         }
     }
 
-    confirmedBook = event =>{
+    confirmedBook = event =>{ // User confirms book from serach result list
 
        
 

@@ -10,7 +10,7 @@ export default class BookList extends React.Component {
     constructor(props){
         super(props)
         this.state={};
-    }
+    };
 
 
     render() {
@@ -18,7 +18,7 @@ export default class BookList extends React.Component {
         
         
         return (
-            <>
+            <section>
                 
                 <div className="book-list">
                     <div className="add-button-container">
@@ -30,7 +30,7 @@ export default class BookList extends React.Component {
                         return <Book key={book.id}{...book}></Book>
                     })}
                 </div>
-            </>
+            </section>
         )
     }
 }

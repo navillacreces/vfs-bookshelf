@@ -17,23 +17,23 @@ export default class App extends React.Component {
       books : [],
       error: null
     };
-  }
+  };
 
   handleAddBook = newBook =>{
     this.setState({
       books: [...this.state.books, newBook]
     })
-  }
+  };
 
+  // on Mount, fetch from Db
   componentDidMount(){
-
          
     const options = {
       method: 'GET',
       headers:{
         "Content-Type": "application/json" 
       }
-    }
+    };
 
 
     fetch(`${config.REACT_APP_API_ENDPOINT}/books`,options)
@@ -42,12 +42,12 @@ export default class App extends React.Component {
             throw new Error('Something went wrong, please try again later');
         }
 
-          return res.json()
+          return res.json();
       })
       .then(books =>{
         this.setState({
           books:books
-        })
+        });
       })
         .catch(err =>{
           this.setState({
@@ -63,7 +63,7 @@ export default class App extends React.Component {
       books : this.state.books,
       handleAddBook: this.handleAddBook,
       postToDatabase: this.postToDatabase
-    }
+    };
 
     return (
       <BookContext.Provider value={value}>

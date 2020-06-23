@@ -34,9 +34,7 @@ export default class AddBook extends Component {
         this.setState({
             results: [],
             searched: false,      
-        })
-        
-
+        }) 
     }
 
 
@@ -63,16 +61,16 @@ export default class AddBook extends Component {
             purchase_link: null
         }
         
-        
-        const url = 'https://www.googleapis.com/books/v1/volumes?q='
+        // google books api 
+        const url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
         const titleArray = title.split(' ');
 
         const authorArray = author.split(' ');
-        const authorLastName = authorArray[authorArray.length - 1]
+        const authorLastName = authorArray[authorArray.length - 1];
 
-        const titleQuery= `intitle:${titleArray[0]}`
-        const authorQuery = `inauthor:${authorLastName}+`
+        const titleQuery= `intitle:${titleArray[0]}`;
+        const authorQuery = `inauthor:${authorLastName}+`;
        
 
         const options = {
@@ -80,22 +78,20 @@ export default class AddBook extends Component {
             header : {
                 'Content-Type': 'application/json'
             }
-        }
-
-        const urlWithQ = url + authorQuery + titleQuery; // isbn 
+        };
+        //  search string
+        const urlWithQ = url + authorQuery + titleQuery; 
         
         fetch(urlWithQ + `&key=${config.REACT_APP_API_KEY}`, options)
             .then(res =>{
                 if (!res.ok){
                     throw new Error ('something went wrong try again later');
                 }
-                return res.json()
+                return res.json();
             })
             .then(resObj =>{
                 
-                
-               
-               
+               //reset form if no results
                 if (resObj.totalItems === 0){
                     this.setState({
                         zeroResult: true
@@ -104,12 +100,12 @@ export default class AddBook extends Component {
                    
                 } else {
 
-                const firstFive = [];
+                const firstFive = []; // lets user decide which to add to library
                 let x = 0;
 
                 for (x = 0; x <= 4; x++){
                     
-                    firstFive.push(resObj.items[x])
+                    firstFive.push(resObj.items[x]);
                 }
 
                 this.setState({
@@ -118,31 +114,29 @@ export default class AddBook extends Component {
                     ownership: newBook.status,
                     rating: newBook.rating
                 })                  
-                }               
+                };  
 
             })
             .catch(err =>{
 
                 this.setState({
                     error: err
-                })
-               
-              });
-
-
-             
+                })           
+              });       
     }
 
 
     ZeroResult(){
        
-            return 'No Results Found, Please make a new serach'
+            return 'No Results Found, Please make a new serach';
         
     }
+
     render() {
 
         const zeroResultsError = this.ZeroResult()
         return (
+            <section>
             <div className="addBook">
                 <h4>Add a book to your bookshelf with the Google Api</h4>
                 {this.state.zeroResult && <ValidationError className="zero-error" message={zeroResultsError}/>}
@@ -204,6 +198,7 @@ export default class AddBook extends Component {
                     ownership={this.state.ownership}
                     rating={this.state.rating} />}
             </div>
+            </section>
         )
     }
 }

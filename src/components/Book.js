@@ -6,6 +6,8 @@ export default class Book extends React.Component {
 
     render(){
 
+        
+        // deconstruct object
         const {title,author,ownership,img,purchase_link,rating} = this.props;
     
 
@@ -24,7 +26,7 @@ export default class Book extends React.Component {
                     <img src={img} alt="bookcover"></img>
                 </div>
                 <div className="rating">
-                <Rating value={rating}/>
+                <Rating value={rating}/> 
                 </div>
                 <div className="own-status">
                     <h4>Status:</h4>
