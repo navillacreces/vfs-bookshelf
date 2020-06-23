@@ -73,8 +73,11 @@ export default class App extends React.Component {
             <h6>Catalog your books and your future library</h6>
           </header>
           <Route exact path='/' component={BookList} />
-          <Route path='/add' component={AddBook} />
+          <Route path='/add' component={AddBook} /> 
         </div>
+        <footer>
+            <h6>made in texas</h6>
+        </footer>
       </BookContext.Provider>
     );
   }
