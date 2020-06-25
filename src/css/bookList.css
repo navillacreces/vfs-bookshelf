@@ -13,9 +13,9 @@ button{
     border-radius: 50%;
     background-color: #27767C;
     height: 40px;
-    width: 50px;
+    width: 150px;
     font-size: 22px;
-    color: #B9DFBB;
-    font-weight: bold;
+   /* color: #B9DFBB;
+    font-weight: bold;*/
     border: none;
 }
